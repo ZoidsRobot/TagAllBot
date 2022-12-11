@@ -5,15 +5,15 @@
   "env": {
     "TOKEN": {
       "description": "Enter bot token Get It From @botfather.",
-      "value": ""
+      "value": "5937294943:AAF__32hQvheNIGI8D3MiTr30HNhXm56oF8"
     },
     "APP_ID": {
       "description": "Get this value from my.telegram.org! Please do not steal.",
-      "value": ""
+      "value": "14672956"
     },
     "API_HASH": {
       "description": "Get this value from my.telegram.org! Please do not steal.",
-      "value": ""
+      "value": "115e8242ea0423893160bb61a9e05eab"
     }
   },
   "buildpacks": [{
