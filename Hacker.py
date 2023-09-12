@@ -12,39 +12,13 @@ logging.basicConfig(
 )
 LOGGER = logging.getLogger(__name__)
 
-api_id = int(os.environ.get("APP_ID"))
-api_hash = os.environ.get("API_HASH")
-bot_token = os.environ.get("TOKEN")
+api_id = int(os.environ.get("APP_ID", "9774346"))
+api_hash = os.environ.get("API_HASH", "a92aed7d74654a563af4b07efbcd88e9")
+bot_token = os.environ.get("TOKEN", "6132329564:AAEJBoyXwP9eipKIQAxT7yQHf39HzyhV_5A")
 client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 spam_chats = []
 
-@client.on(events.NewMessage(pattern="^/start$"))
-async def start(event):
-  await event.reply(
-    "__**𝐈'𝐦 𝐓𝐚𝐠𝐀𝐥𝐥 𝐁𝐨𝐭**, 𝐢 𝐂𝐚𝐧 𝐌𝐞𝐧𝐭𝐢𝐨𝐧 𝐀𝐥𝐥 𝐌𝐞𝐦𝐛𝐞𝐫𝐬 𝐈𝐧 𝐆𝐫𝐨𝐮𝐩 𝐎𝐫 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 👻\n𝐂𝐥𝐢𝐜𝐤 **/help** 𝐅𝐨𝐫 𝐌𝐨𝐫𝐞 𝐈𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧__\n\n 𝐅𝐨𝐥𝐥𝐨𝐰 [𝐌𝐑.𝐀𝐀𝐑𝐀𝐕_𝐗𝐃](https://t.me/love_birds_group) 𝗢𝗻 𝐓𝐞𝐥𝐞𝐆𝐫𝐚𝐦",
-    link_preview=False,
-    buttons=(
-      [
-        Button.url('✨𝐒𝐔𝐏𝐏𝐎𝐑𝐓', 'https://t.me/love_birds_143'),
-        Button.url('😎𝐎𝐖𝐍𝐄𝐑', 'https://t.me/AARAV_XD')
-      ]
-    )
-  )
 
-@client.on(events.NewMessage(pattern="^/help$"))
-async def help(event):
-  helptext = "**Help Menu of TagAllBot**\n\nCommand: /all\n__You can use this command with text what you want to mention others.__\nExample: `/all Good Morning!`\n__You can you this command as a reply to any message. Bot will tag users to that replied messsage__.\n\nUse /cancel To Stop Tagging in group\n\nFollow [𝐌𝐑.𝐀𝐀𝐑𝐀𝐕_𝐗𝐃](https://t.me/love_birds_group) 𝗢𝗡 𝗧𝗘𝗟𝗘𝗚𝗥𝗔𝗠"
-  await event.reply(
-    helptext,
-    link_preview=False,
-    buttons=(
-      [
-        Button.url('✨𝐒𝐔𝐏𝐏𝐎𝐑𝐓', 'https://t.me/love_birds_143'),
-        Button.url('😎𝐎𝐖𝐍𝐄𝐑', 'https://t.me/AARAV_XD')
-      ]
-    )
-  )
-  
 @client.on(events.NewMessage(pattern="^/all ?(.*)"))
 async def all(event):
   chat_id = event.chat_id
